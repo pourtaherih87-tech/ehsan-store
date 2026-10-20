@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>فروشگاه احسان | قطعات خودرو</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="navbar">
+    <a href="#" class="logo">
+      <span class="logo-icon">E</span>
+      <span>فروشگاه احسان<small>قطعات خودرو</small></span>
+    </a>
+
+    <nav>
+      <a href="#products">محصولات</a>
+      <a href="#about">درباره ما</a>
+      <button id="cartBtn">سبد خرید (<span id="cartCount">۰</span>)</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <span class="tag">فروشگاه تخصصی قطعات خودرو</span>
+        <h1>قطعهٔ مناسب،<br><span>انتخاب مطمئن.</span></h1>
+        <p>قطعات موردنیازت رو پیدا کن و محصولات فروشگاه رو بررسی کن.</p>
+        <a href="#products" class="primary-btn">مشاهده محصولات ←</a>
+      </div>
+      <div class="hero-icon">⚙</div>
+    </section>
+
+    <section class="section" id="products">
+      <div class="section-heading">
+        <div>
+          <span class="tag">کاتالوگ فروشگاه</span>
+          <h2>محصولات</h2>
+        </div>
+
+        <div class="filters">
+          <input id="search" type="search" placeholder="جست‌وجوی محصول...">
+          <select id="category">
+            <option value="">همه دسته‌ها</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="productList" class="products"></div>
+    </section>
+
+    <section class="about" id="about">
+      <div>
+        <h2>فروشگاه احسان</h2>
+        <p>برای اطلاع از موجودی و قیمت نهایی، با فروشگاه هماهنگ کنید.</p>
+      </div>
+      <button class="outline-btn" id="adminBtn">ورود مدیر</button>
+    </section>
+  </main>
+
+  <footer>
+    <span>© فروشگاه احسان</span>
+    <span>قطعات خودرو، ساده و مطمئن</span>
+  </footer>
+
+  <!-- پنل مدیریت -->
+  <div class="overlay" id="adminOverlay">
+    <div class="modal">
+      <button class="close" data-close="adminOverlay">×</button>
+
+      <div id="loginPanel">
+        <span class="tag">دسترسی مدیر</span>
+        <h2>ورود به مدیریت</h2>
+        <form id="loginForm">
+          <label>رمز مدیریت
+            <input type="password" id="password" required>
+          </label>
+          <button class="primary-btn" type="submit">ورود</button>
+          <p id="loginError" class="error"></p>
+        </form>
+      </div>
+
+      <div id="dashboard" hidden>
+        <span class="tag">مدیریت فروشگاه</span>
+        <h2>افزودن محصول</h2>
+
+        <form id="productForm">
+          <label>نام محصول
+            <input id="name" required placeholder="مثلاً فیلتر روغن">
+          </label>
+
+          <label>قیمت به تومان
+            <input id="price" type="number" min="0" required>
+          </label>
+
+          <label>دسته‌بندی
+            <input id="productCategory" required placeholder="مثلاً فیلترها">
+          </label>
+
+          <label>لینک تصویر (اختیاری)
+            <input id="image" type="url" placeholder="https://...">
+          </label>
+
+          <label>توضیحات
+            <textarea id="description" rows="3"></textarea>
+          </label>
+
+          <button class="primary-btn" type="submit">ثبت محصول</button>
+        </form>
+
+        <h3>مدیریت محصولات</h3>
+        <div id="adminProducts"></div>
+        <button class="outline-btn full" id="logoutBtn">خروج از پنل</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- سبد خرید -->
+  <div class="overlay" id="cartOverlay">
+    <div class="modal">
+      <button class="close" data-close="cartOverlay">×</button>
+      <h2>سبد خرید</h2>
+      <div id="cartItems">سبد خرید خالی است.</div>
+      <hr>
+      <h3>جمع کل: <span id="total">۰ تومان</span></h3>
+      <p class="muted">این نسخه پرداخت آنلاین ندارد.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
